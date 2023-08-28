@@ -25,4 +25,9 @@ export class Color {
   toString(): string {
     return `(${this.r},${this.g},${this.b}${this.a ? "," + this.a + ")" : ")"}`;
   }
+
+  static BLACK = new Color(0,0,0)
+  static RED = new Color(255,0,0)
+  static GREEN = new Color(0,255,0)
+  static BLUE = new Color(0,0,255)
 }
