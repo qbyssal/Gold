@@ -27,6 +27,7 @@ export class Color {
   }
 
   static BLACK = new Color(0,0,0)
+  static WHITE = new Color(255,255,255)
   static RED = new Color(255,0,0)
   static GREEN = new Color(0,255,0)
   static BLUE = new Color(0,0,255)

@@ -1,22 +1,33 @@
-import { canvas, ctx, fullscreenCanvas, setFill } from "./CanvasManager";
+import { CanvasManager , canvas } from "./CanvasManager";
+import { AABB } from "./Colliders";
 import { Color } from "./Color"
+import { render, renderedObjects } from "./Rendering";
 
-fullscreenCanvas(canvas);
+let FRAMECOUNT=0;
+CanvasManager.fullscreenCanvas(canvas);
 
-let c1=new Color(255,255,0)
-let c2=new Color(255,127,127,50)
-// let dayGen=lerp()
+let a = new AABB(180,20,550,800)
+let b = new AABB(50,50,200,200)
+//a.setRendering(true)
+a.setRendering(true)
+b.setRendering(true)
+
 function draw() {
   let { width, height } = canvas;
   requestAnimationFrame(draw);
-  setFill(Color.BLUE)
-  ctx.fillRect(0, 0, width, height);
+  CanvasManager.drawRect(0, 0, width, height,{
+    filled:true,
+    fill:Color.BLACK
+  });
+  
+  for(let object of renderedObjects){
+    render(object)
+  }
+
+  if(FRAMECOUNT%10==0){
+    a.toggleRendering()
+  }
+  FRAMECOUNT++
 }
 
-console.log(c1.toHex(),c2.toHex())
-
-// function* lerp(a:Color,b:Color,steps:number){
-
-// }
 draw();
-console.log(ctx.fillStyle)
