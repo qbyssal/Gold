@@ -1,5 +1,5 @@
-import { Color } from './Color';
-import {RectangleRenderer, Renderable, renderOptions, renderedObjects} from './Rendering'
+import { Color } from '../rendering/Color';
+import {RectangleRenderer, Renderable, renderOptions, renderedObjects} from '../rendering/Rendering'
 export class AABB implements Renderable,RectangleRenderer{
     private rendering:boolean=false;
     private x1:number;
